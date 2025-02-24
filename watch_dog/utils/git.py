@@ -8,7 +8,8 @@ def handle_update(message, branch):
     system(f'git commit -m {message}')
 
     try:
-         system(f'git push origin {branch}')
+         exit_code = system(f'git push origin {branch}')
+         print(exit_code)
     except Exception as e:
         print(e)
         time.sleep(10)
