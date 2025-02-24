@@ -10,6 +10,7 @@ def handle_update(message, branch):
     try:
          system(f'git push origin {branch}')
     except Exception as e:
+        print(e)
         time.sleep(10)
         system(f'git push origin {branch}')
 
@@ -49,6 +50,9 @@ class Git_service:
 
         if ".git" in files:
             handle_update(str(message), str(branch))
+        else:
+            print('Invalid')
+        
 
 
 
