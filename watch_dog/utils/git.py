@@ -9,7 +9,7 @@ def handle_update(message, branch):
     system(f'git commit -m {message}')
 
     try:
-        result = subprocess.run(['git', 'push', 'origin', branch])
+        result = subprocess.run(['git', 'push', 'origin', branch], capture_output=True)
         print(result.stdout)
     except Exception as e:
         print(e)
