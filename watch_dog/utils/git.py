@@ -48,6 +48,8 @@ class Git_service:
             branch = None
 
         files = listdir()
+        if branch:
+            print('sdf')
 
         if ".git" in files and branch:
             handle_update(message, branch)
