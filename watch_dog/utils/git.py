@@ -2,14 +2,15 @@ from os import system
 from os import listdir
 import time
 import json
+import subprocess
 
 def handle_update(message, branch):
     system('git add .')
     system(f'git commit -m {message}')
 
     try:
-         exit_code = system(f'git push origin {branch}')
-         print(exit_code)
+        result = subprocess.run(['git', 'push', 'origin', branch])
+        print(result.stdout)
     except Exception as e:
         print(e)
         time.sleep(10)
